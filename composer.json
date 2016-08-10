@@ -6,10 +6,10 @@
     "require": {
         "php": ">=5.5.9"
     },
-    "files": [
-        "helpers.php"
-    ],
     "autoload": {
+        "files": [
+            "helpers.php"
+        ],
         "psr-4": {
             "VSC\\": "src/"
         }
