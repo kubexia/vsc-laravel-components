@@ -76,7 +76,7 @@ class ServiceProvider extends LaravelServiceProvider {
         $twig = app('twig');
         
         $twig->addFunction(new \Twig_SimpleFunction('theme', function($string='',$parameters = [], $secure = null){
-            return url(config('theme.path').'/'.config('theme.name').'/'.$string,$parameters, $secure);
+            return theme_path($string, $parameters, $secure);
         }));
     }
     
