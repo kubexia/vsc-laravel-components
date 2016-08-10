@@ -16,7 +16,7 @@ class ServiceProvider extends LaravelServiceProvider {
      * @return void
      */
     
-    protected $packageName = 'vsc-laravel-components';
+    protected $packageName = 'vsc';
     
     public function boot() {
         $this->handleConfigs();
@@ -24,6 +24,8 @@ class ServiceProvider extends LaravelServiceProvider {
         $this->handleViews();
         
         $this->handleTranslations();
+        
+        $this->registerTwigFunctions();
         
     }
     /**
@@ -68,6 +70,14 @@ class ServiceProvider extends LaravelServiceProvider {
             __DIR__.'/../resources/views' => base_path('resources/views/vendor/'.$this->packageName)
         ],'views');
         
+    }
+    
+    private function registerTwigFunctions(){
+        $twig = app('twig');
+        
+        $twig->addFunction(new \Twig_SimpleFunction('theme', function($string='',$parameters = [], $secure = null){
+            return url(config('theme.path').'/'.config('theme.name').'/'.$string,$parameters, $secure);
+        }));
     }
     
 }
