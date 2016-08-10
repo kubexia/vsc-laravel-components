@@ -1,0 +1,15 @@
+{
+    "name":"kubexia/vsc-laravel-components",
+    "description":"Laravel Components",
+    "type":"library",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "VSC\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
